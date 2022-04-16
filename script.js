@@ -3,10 +3,17 @@ var now = moment();
 console.log(now);
 var date = moment().format("dddd, MMMM Do YYYY, h:mm:ss a"); 
 var currentDay = document.getElementById("currentDay");
-
 currentDay.innerText = date;
 
 
-// Time slots
+var timeBlockElements = document.querySelectorAll(".time-block")
+console.log(timeBlockElements)
 
-var timeSlot
+var setTimeClass = function(arrayOfTimeBlocks) {
+    for (let index = 0; index < arrayOfTimeBlocks.length; index++) {
+        const element = arrayOfTimeBlocks[index];
+        console.log(element);
+        if index == 
+    }
+};
+setTimeClass(timeBlockElements)
