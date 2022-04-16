@@ -13,7 +13,10 @@ var setTimeClass = function(arrayOfTimeBlocks) {
     for (let index = 0; index < arrayOfTimeBlocks.length; index++) {
         const element = arrayOfTimeBlocks[index];
         console.log(element);
-        if index == 
+
     }
 };
 setTimeClass(timeBlockElements)
+
+
+
