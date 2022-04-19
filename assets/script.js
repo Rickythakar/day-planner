@@ -1,46 +1,48 @@
 // variable to get current date and time
-var now = moment();
+let now = moment();
 console.log(now);
-var date = moment().format("dddd, MMMM Do YYYY, h:mm a");
+let date = moment().format("dddd, MMMM Do YYYY, h:mm a");
 
 //var currentDay = document.getElementById("currentDay");
-var $currentDay = $("#currentDay");
+let $currentDay = $("#currentDay");
 
 // Appends the current date to the date class 
-// can also be written as 
-//currentDay.innerText = date;
 $currentDay.text(date);
 
-// var timeBlockElements = document.querySelectorAll(".time-block")
-var $timeBlockElements = $(".time-block");
-console.log($timeBlockElements);
-var setTimeClass = function ($arrayOfTimeBlocks) {
-    //for (let index = 0; index < arrayOfTimeBlocks.length; index++) {
-    //     const element = arrayOfTimeBlocks[index];
-    //     console.log(element); }
-    $arrayOfTimeBlocks.each(function (index) {
-        // console.log(this);
-        var $currentTimeBlock = $(this);
-        var timeBlockHour = parseInt($currentTimeBlock.attr("id"));
-        var currentHour = moment().hours();
+function hourTracker() {
+    let currentHour = moment().hour();
 
-        // var timeBlockMoment = moment(timeBlockHour)
-        // console.log(timeBlockMoment.format("ha"))
-        //     if (currentHour.isSame(moment(timeBlockHour))) {
-        //     $currentTimeBlock.addClass("present")
-        // } 
-        //else if (currentHour > timeBlockHour) {
-        //  $currentTimeBlock.addClass("past")
-        //}
-    });
-};
+    $(".time-block").each(function(){
+        let hourSegments = parseInt($(this).attr("id").split("hour")[1]);
+        
+        
+        if (hourSegments === currentHour){
+            $(this).addClass(present);
+        }
+        else if (hourSegments < currentHour){
+            $(this).addClass(past);
+        }
+        else (hourSegments > currentHour)
+    })
+}
 
-//Call set time function 
-setTimeClass($timeBlockElements);
+//call function to track hour
+hourTracker();
 
 
+
+
+
+
+
+
+
+
+
+
+//=================================================================================================
 // Create a function that responds to the save button and saves the data from the text area to local storage
-//event for clicking on save button 
+// event for clicking on save button 
 $('.saveBtn').on("click", function () {
     let textData = $(this).siblings(".description").val();
     let hour = $(this).parent().attr("id");
