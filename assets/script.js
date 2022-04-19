@@ -11,18 +11,18 @@ $currentDay.text(date);
 
 function hourTracker() {
     let currentHour = moment().hour();
-
-    $(".time-block").each(function(){
+    $(".time-block").each(function () {
         let hourSegments = parseInt($(this).attr("id").split("hour")[1]);
-        
-        
-        if (hourSegments === currentHour){
-            $(this).addClass(present);
+
+        if (hourSegments === currentHour) {
+            $(this).addClass("present");
         }
-        else if (hourSegments < currentHour){
-            $(this).addClass(past);
+        else if (hourSegments < currentHour) {
+            $(this).addClass("past");
         }
-        else (hourSegments > currentHour)
+        else {
+            $(this).addClass("future")
+        }
     })
 }
 
