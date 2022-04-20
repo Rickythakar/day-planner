@@ -15,7 +15,7 @@ setInterval(update, 1000);
 
 // Function to track the current hour using moment js and to add a class to an item according to time of day
 function hourTracker() {
-    var currentHour = moment().hour();
+    var currentHour = moment().hours();
     console.log(currentHour);
     $(".time-block").each(function () {
         let hourSegments = parseInt($(this).attr("id").split("-")[1]);
@@ -28,8 +28,8 @@ function hourTracker() {
         else {
             $(this).addClass("future")
         }
-    })
-}
+    });
+};
 //call function to track hour
 hourTracker();
 
@@ -50,5 +50,5 @@ $("#13 .description").val(localStorage.getItem('13'));
 $("#14 .description").val(localStorage.getItem('14'));
 $("#15 .description").val(localStorage.getItem('15'));
 $("#16 .description").val(localStorage.getItem('16'));
-$("#21 .description").val(localStorage.getItem('21'));
+$("#21 .description").val(localStorage.getItem('17'));
 })
