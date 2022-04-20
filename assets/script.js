@@ -1,46 +1,38 @@
+$(document).ready(function(){
 // variable to get current date and time
 let now = moment();
-console.log(now);
-let date = moment().format("dddd, MMMM Do YYYY, h:mm a");
+//console.log(now);
+let date = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
-//var currentDay = document.getElementById("currentDay");
+//document.getElementById("#currentDay").innerHTML = moment().format("dddd, MMMM Do YYYY, h:mm a");
 let $currentDay = $("#currentDay");
-
 // Appends the current date to the date class 
 $currentDay.text(date);
+let update = function(){
+    document.getElementById('currentDay').innerHTML = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+}
+setInterval(update, 1000);
 
+// Function to track the current hour using moment js and to add a class to an item according to time of day
 function hourTracker() {
-    let currentHour = moment().hour();
+    var currentHour = moment().hour();
+    console.log(currentHour);
     $(".time-block").each(function () {
-        let hourSegments = parseInt($(this).attr("id").split("hour")[1]);
-
-        if (hourSegments === currentHour) {
-            $(this).addClass("present");
-        }
-        else if (hourSegments < currentHour) {
+        let hourSegments = parseInt($(this).attr("id").split("-")[1]);
+        if (currentHour < hourSegments) {
             $(this).addClass("past");
+        }
+        else if (currentHour === hourSegments) {
+            $(this).addClass("present");
         }
         else {
             $(this).addClass("future")
         }
     })
 }
-
 //call function to track hour
 hourTracker();
 
-
-
-
-
-
-
-
-
-
-
-
-//=================================================================================================
 // Create a function that responds to the save button and saves the data from the text area to local storage
 // event for clicking on save button 
 $('.saveBtn').on("click", function () {
@@ -54,8 +46,9 @@ $("#9 .description").val(localStorage.getItem('9'));
 $("#10 .description").val(localStorage.getItem('10'));
 $("#11 .description").val(localStorage.getItem('11'));
 $("#12 .description").val(localStorage.getItem('12'));
-$("#1 .description").val(localStorage.getItem('1'));
-$("#2 .description").val(localStorage.getItem('2'));
-$("#3 .description").val(localStorage.getItem('3'));
-$("#4 .description").val(localStorage.getItem('4'));
-$("#5 .description").val(localStorage.getItem('5'));
+$("#13 .description").val(localStorage.getItem('13'));
+$("#14 .description").val(localStorage.getItem('14'));
+$("#15 .description").val(localStorage.getItem('15'));
+$("#16 .description").val(localStorage.getItem('16'));
+$("#21 .description").val(localStorage.getItem('21'));
+})
