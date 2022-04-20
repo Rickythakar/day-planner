@@ -18,9 +18,11 @@ function hourTracker() {
     var currentHour = moment().hours();
     console.log(currentHour);
     $(".time-block").each(function () {
-        let hourSegments = parseInt($(this).attr("id").split("-")[1]);
-        if (currentHour < hourSegments) {
+        let hourSegments = parseInt($(this).attr("id").split()[0]);
+        console.log(hourSegments);  
+        if (currentHour > hourSegments) {
             $(this).addClass("past");
+            console.log(currentHour);
         }
         else if (currentHour === hourSegments) {
             $(this).addClass("present");
@@ -51,4 +53,4 @@ $("#14 .description").val(localStorage.getItem('14'));
 $("#15 .description").val(localStorage.getItem('15'));
 $("#16 .description").val(localStorage.getItem('16'));
 $("#21 .description").val(localStorage.getItem('17'));
-})
+});
